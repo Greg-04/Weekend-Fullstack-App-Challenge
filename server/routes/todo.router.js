@@ -21,6 +21,27 @@ router.get('/', (req, res) => {
 
 // POST
 
+router.post('/', (req, res) => {
+    const newTask = req.body;
+    const queryText = `
+    INSERT INTO "toDoList" ("Task", "Description")
+    VALUES 
+	($1, $2);`;
+    const queryArgs = [
+        newTask.Task,
+        newTask.Description,
+    ];
+    pool    
+        .query(queryText, queryArgs)
+        .then((results) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            res.sendStatus(500);
+        });
+});
+
+
 // PUT
 
 // DELETE
