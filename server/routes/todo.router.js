@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // GET
 
 router.get('/', (req, res) => {
-    const dbQuery = 'SELECT * FROM "koalas";';
+    const dbQuery = 'SELECT * FROM "toDoList";';
     pool
         .query(dbQuery)
         .then((result) => {
