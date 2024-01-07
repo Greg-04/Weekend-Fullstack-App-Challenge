@@ -5,8 +5,3 @@ function onReady() {
   }
   
   onReady();
-
-
-
-
-  
