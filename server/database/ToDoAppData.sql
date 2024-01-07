@@ -13,3 +13,7 @@ VALUES
 	('Buy Groceries', 'Go to the store and buy weekly groceries');
 	
 SELECT * FROM "toDoList";
+
+UPDATE "toDoList" SET "Description" = 'finish part 1 of weekend full stack app' WHERE "id" = '4';
+
+DELETE FROM "toDoList" WHERE "id" = '4';

@@ -41,9 +41,46 @@ router.post('/', (req, res) => {
         });
 });
 
-
 // PUT
 
+router.put('/update/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const updatedTaskDescription = req.body.Description;
+    console.log('req.body.description', updatedTaskDescription)
+
+    // if (updatedTaskDescription === undefined) {
+    //     return res.status(400).send('Invalid data provided');
+    // }
+
+  let queryText = `UPDATE "toDoList" SET "Description" = $1 WHERE "id" = $2;`;
+
+  pool
+    .query(queryText, [updatedTaskDescription, id])
+    .then((results) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error('Error:', err);
+      res.sendStatus(500);
+    });
+});
+
 // DELETE
+
+router.delete('/:id', (req, res) => {
+    const id = Number(req.params.id);
+
+    const queryText = 'DELETE FROM "toDoList" WHERE "id" = $1;';
+
+    pool
+        .query(queryText, [id])
+        .then((results) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.error(`Error: making database query ${queryText}`, err);
+            res.sendStatus(500); // good server always responds
+        });
+});
 
 module.exports = router;
