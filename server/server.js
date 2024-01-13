@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const todoRouter = require('./routes/todo.router.js');
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
-app.use(express.json()); // needed for axios requests
+app.use(bodyParser.json());
+// app.use(express.json()); // needed for axios requests
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
