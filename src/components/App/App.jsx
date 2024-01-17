@@ -24,8 +24,6 @@ function App () {
   });
   };
 
-
-
    // initial load of component
    useEffect(() => {
     // body of effect

@@ -1,9 +1,20 @@
 import { useState } from 'react';
 import { postTask } from '../tasksAPI/tasks.api';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { blue } from '@mui/material/colors';
 
 function AddTaskForm(props) {
   const [TaskValue, setTaskValue] = useState('');
   const [DescriptionValue, setDescriptionValue] = useState('');
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: blue[900],
+      },
+    },
+  });
 
   const handleSubmitTask = (event) => {
     event.preventDefault();
@@ -47,7 +58,13 @@ function AddTaskForm(props) {
           value={DescriptionValue}
         />
       </label>
-      <button type="submit">Submit</button>
+      <ThemeProvider theme={theme}>
+      <Button 
+      type="submit"
+      variant="contained"
+      size="small"
+      >Submit</Button>
+      </ThemeProvider>
     </form>
   );
 }
