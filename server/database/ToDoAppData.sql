@@ -16,4 +16,6 @@ SELECT * FROM "toDoList";
 
 UPDATE "toDoList" SET "Description" = 'finish part 1 of weekend full stack app' WHERE "id" = '4';
 
+UPDATE "toDoList" SET "Status" = NOT "Status" WHERE "id" = '12';
+
 DELETE FROM "toDoList" WHERE "id" = '4';

@@ -43,20 +43,25 @@ router.post('/', (req, res) => {
 
 // PUT
 
-router.put('/update/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const id = Number(req.params.id);
-    const updatedTaskDescription = req.body.Description;
-    console.log('req.body.description', updatedTaskDescription)
+
+    // const updatedTaskDescription = req.body.Description;
+    // console.log('req.body.description', updatedTaskDescription)
 
     // if (updatedTaskDescription === undefined) {
     //     return res.status(400).send('Invalid data provided');
     // }
 
-  let queryText = `UPDATE "toDoList" SET "Description" = $1 WHERE "id" = $2;`;
+    //old queryText
+//   let queryText = `UPDATE "toDoList" SET "Description" = $1 WHERE "id" = $2;`;
+
+    let queryText = `UPDATE "toDoList" SET "Status" = NOT "Status" WHERE "id" = $1;`;    
 
   pool
-    .query(queryText, [updatedTaskDescription, id])
-    .then((results) => {
+    // .query(queryText, [updatedTaskDescription, id])
+    .query(queryText, [id])
+    .then((response) => {
       res.sendStatus(200);
     })
     .catch((err) => {
