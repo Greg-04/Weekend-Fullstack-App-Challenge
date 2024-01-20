@@ -34,7 +34,7 @@ function App () {
   .catch((err) => {
       console.error('ERROR:', err);
   });
-  };
+};
 
    // initial load of component
    useEffect(() => {
