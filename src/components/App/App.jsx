@@ -1,6 +1,7 @@
 import {useState , useEffect} from 'react';
 import {fetchTasks , deleteTask, updateTaskStatus} from '../tasksAPI/tasks.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
+import './App.css';
 
 function App () {
   const [toDoList, setToDoList] = useState([
@@ -58,7 +59,7 @@ function App () {
 
   return (
     <div>
-      <h1>TO DO APP</h1>
+      <h1 className="title">TO DO APP</h1>
       <AddTaskForm taskRefreshCallback = {refreshTasks}/>
       {toDoList.map((taskData, dataIndex) => {
           return (

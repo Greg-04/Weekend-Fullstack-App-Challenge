@@ -1,5 +1,14 @@
-.App {
+.title {
   text-align: center;
+  box-sizing: border-box;
+  gap: 1rem;
+  width: 100%;
+  padding: 10px;
+  background-color: #e8e7e7f8;
+  color: hsl(220, 13%, 40%);
+  text-transform: uppercase;
+  border-style: groove;
+  border-color: black;
 }
 
 .App-header {
