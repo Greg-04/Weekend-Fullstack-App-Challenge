@@ -9,6 +9,21 @@
   text-transform: uppercase;
   border-style: groove;
   border-color: black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.Completed {
+  border: 3px solid greenyellow;
+  border-radius: 6px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.Uncompleted {
+  border: 3px solid rgb(249, 9, 9);
+  border-radius: 6px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .App-header {

@@ -63,10 +63,10 @@ function App () {
       <AddTaskForm taskRefreshCallback = {refreshTasks}/>
       {toDoList.map((taskData, dataIndex) => {
           return (
-            <div key={dataIndex}>
+            <div key={dataIndex} className={taskData.Status ? 'Completed' : 'Uncompleted'}>
             <h3>{taskData.Task}</h3>
             <p>{taskData.Description}</p>
-            <p>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</p>
+            <i>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</i>
             <p><input type="checkbox" onClick={(event) => handleTaskStatus(taskData.id)}></input> </p>
             <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
             </div>
