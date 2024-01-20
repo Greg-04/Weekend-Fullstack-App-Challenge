@@ -1,6 +1,9 @@
 import {useState , useEffect} from 'react';
 import {fetchTasks , deleteTask, updateTaskStatus} from '../tasksAPI/tasks.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { red } from '@mui/material/colors';
+import Button from '@mui/material/Button';
 import './App.css';
 
 function App () {
@@ -9,6 +12,14 @@ function App () {
     // {Task: 'Task 2', Description: 'Wash Car'},
     // {Task: 'Task 3', Description: 'Pay Bills'},
   ]);
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: red[400],
+      },
+    },
+  });
 
   const refreshTasks = () => {
     // api call
@@ -68,7 +79,9 @@ function App () {
             <p>{taskData.Description}</p>
             <i>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</i>
             <p><input type="checkbox" onClick={(event) => handleTaskStatus(taskData.id)}></input> </p>
-            <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
+            <ThemeProvider theme={theme}>
+            <Button size="small" variant="contained" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
+            </ThemeProvider>
             </div>
           );
       })}
