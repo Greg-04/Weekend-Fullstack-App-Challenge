@@ -76,8 +76,10 @@ function App () {
           return (
             <div key={dataIndex} className={taskData.Status ? 'Completed' : 'Uncompleted'}>
             <h3> Task {dataIndex + 1}: {taskData.Task}</h3>
-            <p>{taskData.Description}</p>
-            <i>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</i>
+            <div>
+            <p> <span className="Span">Description:</span> {taskData.Description}</p>
+            </div>
+            <div> <span className="Span">Status: </span> <i>"{taskData.Status ? 'Completed' : 'Uncompleted'}"</i></div>
             <p><input type="checkbox" onClick={(event) => handleTaskStatus(taskData.id)}></input> </p>
             <ThemeProvider theme={theme}>
             <Button size="small" variant="contained" onClick={(event) => handleClickDelete(taskData.id)}>Delete</Button>
