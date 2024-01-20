@@ -1,5 +1,5 @@
 import {useState , useEffect} from 'react';
-import {fetchTasks , deleteTask} from '../tasksAPI/tasks.api';
+import {fetchTasks , deleteTask, updateTaskStatus} from '../tasksAPI/tasks.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 
 function App () {
@@ -45,6 +45,16 @@ function App () {
         console.error('ERROR:', err);
       });
     };
+  
+    const handleTaskStatus = (id) => {
+      updateTaskStatus(id)
+      .then((response) => {
+        refreshTasks();
+      })
+      .catch((err) => {
+        console.error('ERROR:', err);
+      });
+    };
 
   return (
     <div>
@@ -56,7 +66,7 @@ function App () {
             <h3>{taskData.Task}</h3>
             <p>{taskData.Description}</p>
             <p>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</p>
-            <p><input type="checkbox"></input> </p>
+            <p><input type="checkbox" onClick={(event) => handleTaskStatus(taskData.id)}></input> </p>
             <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
             </div>
           );
