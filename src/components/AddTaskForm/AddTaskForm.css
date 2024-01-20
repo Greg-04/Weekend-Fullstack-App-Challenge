@@ -1,0 +1,15 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
+  
+  input {
+    width: 100%; /* Make the input fields take full width */
+    padding: 5px; /* Adjust padding as needed */
+  }
+  

@@ -3,6 +3,8 @@ import { postTask } from '../tasksAPI/tasks.api';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
+import './AddTaskForm.css'
+
 
 function AddTaskForm(props) {
   const [TaskValue, setTaskValue] = useState('');
@@ -41,21 +43,23 @@ function AddTaskForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmitTask}>
-      <label>
-        <span>Task:</span>
+    <form onSubmit={handleSubmitTask} className="form-container">
+      <label className="label">
+        <span className="form-container">Task:</span>
         <input
           id="Task"
           onChange={(event) => setTaskValue(event.target.value)}
           value={TaskValue}
+          className="input"
         />
       </label>
-      <label>
-        <span>Description:</span>
+      <label className="label">
+        <span className="form-container">Description:</span>
         <input
           id="Description"
           onChange={(event) => setDescriptionValue(event.target.value)}
           value={DescriptionValue}
+          className="input"
         />
       </label>
       <ThemeProvider theme={theme}>
