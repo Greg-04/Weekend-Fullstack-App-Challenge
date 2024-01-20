@@ -75,7 +75,7 @@ function App () {
       {toDoList.map((taskData, dataIndex) => {
           return (
             <div key={dataIndex} className={taskData.Status ? 'Completed' : 'Uncompleted'}>
-            <h3>{taskData.Task}</h3>
+            <h3> Task {dataIndex + 1}: {taskData.Task}</h3>
             <p>{taskData.Description}</p>
             <i>Status: "{taskData.Status ? 'Completed' : 'Uncompleted'}"</i>
             <p><input type="checkbox" onClick={(event) => handleTaskStatus(taskData.id)}></input> </p>
