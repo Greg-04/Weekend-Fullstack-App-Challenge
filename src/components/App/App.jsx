@@ -1,5 +1,5 @@
 import {useState , useEffect} from 'react';
-import {fetchTasks} from '../tasksAPI/tasks.api';
+import {fetchTasks , deleteTask} from '../tasksAPI/tasks.api';
 import AddTaskForm from '../AddTaskForm/AddTaskForm';
 
 function App () {
@@ -32,6 +32,20 @@ function App () {
     refreshTasks();
   }, []);
 
+    //delete function
+    const handleClickDelete = (taskId) => {
+      //ID item
+      console.log('DELETE - taskId:', taskId);
+      //Make Axios Call
+      deleteTask(taskId)
+      .then((response) => {
+        refreshTasks();
+      })
+      .catch((err) => {
+        console.error('ERROR:', err);
+      });
+    };
+
   return (
     <div>
       <AddTaskForm taskRefreshCallback = {refreshTasks}/>
@@ -41,6 +55,7 @@ function App () {
             <div key={dataIndex}>
             <h3>{taskData.Task}</h3>
             <p>{taskData.Description}</p>
+            <button onClick={(event) => handleClickDelete(taskData.id)}>Delete</button>
             </div>
           );
       })}

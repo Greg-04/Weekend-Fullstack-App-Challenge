@@ -59,11 +59,11 @@ function AddTaskForm(props) {
         />
       </label>
       <ThemeProvider theme={theme}>
-      <Button 
-      type="submit"
-      variant="contained"
-      size="small"
-      >Submit</Button>
+        <Button 
+          type="submit"
+          variant="contained"
+          size="small"
+        >Submit</Button>
       </ThemeProvider>
     </form>
   );

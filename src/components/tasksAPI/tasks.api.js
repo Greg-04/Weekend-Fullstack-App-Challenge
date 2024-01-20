@@ -9,3 +9,6 @@ export const postTask = (taskData) => {
     return axios.post('/api/todo', taskData);
   };
 
+export const deleteTask = (taskId) => {
+    return axios.delete(`/api/todo/${taskId}`);
+};
