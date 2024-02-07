@@ -32,7 +32,11 @@ function App() {
       //success
       .then((response) => {
         console.log('SERVER DATA:', response);
-        setToDoList(response.data);
+        const tasksWithDefaultStatus = response.data.map((task) => ({
+          ...task,
+          Status: false,
+        }));
+        setToDoList(tasksWithDefaultStatus);
       })
       //failure
       .catch((err) => {
